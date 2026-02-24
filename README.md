@@ -1,4 +1,4 @@
-# Console Terminal for Obsidian
+# Console – A simple terminal for Obsidian
 
 An integrated terminal plugin for [Obsidian](https://obsidian.md) that opens zsh sessions in editor tabs. Built with [xterm.js](https://xtermjs.org/) and [node-pty](https://github.com/nicandris/node-pty) for full PTY emulation — interactive programs, tab completion, colors, and ncurses all work.
 
