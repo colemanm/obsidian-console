@@ -1,0 +1,7 @@
+node_modules/
+main.js
+*.js.map
+data.json
+build/
+.DS_Store
+obsidian-console

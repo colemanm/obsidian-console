@@ -1,0 +1,27 @@
+.console-terminal-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 4px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.console-terminal {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.console-terminal .xterm {
+  height: 100%;
+}
+
+.console-terminal .xterm-viewport {
+  overflow-y: auto;
+}
+
+/* Ensure xterm rows render at the right width */
+.console-terminal .xterm-screen {
+  width: 100% !important;
+}

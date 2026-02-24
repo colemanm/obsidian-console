@@ -1,0 +1,9 @@
+{
+  "id": "console-terminal",
+  "name": "Console",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Integrated zsh terminal in Obsidian tabs via xterm.js and node-pty",
+  "author": "Coleman",
+  "isDesktopOnly": true
+}
