@@ -37,23 +37,23 @@ export class TerminalView extends ItemView {
   async onOpen(): Promise<void> {
     const container = this.containerEl.children[1] as HTMLElement;
     container.empty();
-    container.addClass("console-terminal-container");
+    container.addClass("cathode-terminal-container");
 
     // Inject xterm.css into document head if not already present
-    if (!document.getElementById("console-xterm-css")) {
+    if (!document.getElementById("cathode-xterm-css")) {
       this.styleEl = document.createElement("style");
-      this.styleEl.id = "console-xterm-css";
+      this.styleEl.id = "cathode-xterm-css";
       this.styleEl.textContent = XTERM_CSS;
       document.head.appendChild(this.styleEl);
     }
 
     // Create terminal wrapper
-    const terminalEl = container.createDiv({ cls: "console-terminal" });
+    const terminalEl = container.createDiv({ cls: "cathode-terminal" });
 
     // Init xterm.js
     this.terminal = new Terminal({
       fontSize: DEFAULT_SETTINGS.fontSize,
-      fontFamily: DEFAULT_SETTINGS.fontFamily,
+      fontFamily: this.getMonospaceFont(),
       cursorBlink: true,
       cursorStyle: "block",
       allowProposedApi: true,
@@ -94,6 +94,16 @@ export class TerminalView extends ItemView {
       if (e.metaKey && (e.key === "c" || e.key === "v")) {
         return false; // Let browser handle it
       }
+      // xterm sends the same \r for Enter and Shift+Enter. Send ESC + CR
+      // so CLI apps like Claude Code can distinguish newline from submit
+      // (they treat meta/alt-return as "insert newline"). Block both
+      // keydown and keypress to prevent a stray \r from the keypress.
+      if (e.key === "Enter" && e.shiftKey) {
+        if (e.type === "keydown") {
+          this.pty?.write("\x1b\r");
+        }
+        return false;
+      }
       return true; // xterm handles everything else
     });
 
@@ -128,10 +138,12 @@ export class TerminalView extends ItemView {
     });
     this.resizeObserver.observe(terminalEl);
 
-    // Watch for Obsidian dark/light theme changes
+    // Watch for Obsidian theme/settings changes
     this.themeObserver = new MutationObserver(() => {
       if (this.terminal) {
         this.terminal.options.theme = this.buildTheme();
+        this.terminal.options.fontFamily = this.getMonospaceFont();
+        this.fitAddon?.fit();
       }
     });
     this.themeObserver.observe(document.body, {
@@ -179,6 +191,11 @@ export class TerminalView extends ItemView {
     });
 
     await this.pty.spawn();
+  }
+
+  private getMonospaceFont(): string {
+    const font = getComputedStyle(document.body).getPropertyValue("--font-monospace").trim();
+    return font || DEFAULT_SETTINGS.fontFamily;
   }
 
   private isDark(): boolean {

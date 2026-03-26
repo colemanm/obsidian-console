@@ -1,13 +1,13 @@
-export const VIEW_TYPE_TERMINAL = "terminal-console-view";
+export const VIEW_TYPE_TERMINAL = "terminal-cathode-view";
 
-export interface ConsoleSettings {
+export interface CathodeSettings {
   shell: string;
   cwd: string;
   fontSize: number;
   fontFamily: string;
 }
 
-export const DEFAULT_SETTINGS: ConsoleSettings = {
+export const DEFAULT_SETTINGS: CathodeSettings = {
   shell: process.env.SHELL || "/bin/zsh",
   cwd: "",
   fontSize: 14,

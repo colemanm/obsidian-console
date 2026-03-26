@@ -1,4 +1,4 @@
-# Console – A simple terminal for Obsidian
+# Cathode – A simple terminal for Obsidian
 
 An integrated terminal plugin for [Obsidian](https://obsidian.md) that opens zsh sessions in editor tabs. Built with [xterm.js](https://xtermjs.org/) and [node-pty](https://github.com/nicandris/node-pty) for full PTY emulation — interactive programs, tab completion, colors, and ncurses all work.
 
@@ -20,19 +20,19 @@ This plugin is not yet in the Obsidian community plugin directory. To install ma
 
 ```sh
 cd /path/to/your-vault/.obsidian/plugins
-git clone https://github.com/colemanm/obsidian-console.git console-terminal
-cd console-terminal
+git clone https://github.com/colemanm/obsidian-cathode.git cathode-terminal
+cd cathode-terminal
 npm install
 npx @electron/rebuild -f -w node-pty -v 39.5.1   # match your Obsidian's Electron version
 npm run build
 ```
 
-Then enable **Console** in Obsidian Settings > Community Plugins.
+Then enable **Cathode** in Obsidian Settings > Community Plugins.
 
 ## Usage
 
 - Click the terminal icon in the ribbon, or
-- Open the command palette and run **Console: Open terminal**, or
+- Open the command palette and run **Cathode: Open terminal**, or
 - Press `Ctrl + `` (default hotkey)
 
 Each invocation opens a new terminal tab. Close the tab to kill the session.
@@ -40,8 +40,8 @@ Each invocation opens a new terminal tab. Close the tab to kill the session.
 ## Development
 
 ```sh
-git clone https://github.com/colemanm/obsidian-console.git
-cd obsidian-console
+git clone https://github.com/colemanm/obsidian-cathode.git
+cd obsidian-cathode
 npm install
 npx @electron/rebuild -f -w node-pty -v 39.5.1
 npm run dev          # watch mode
@@ -50,7 +50,7 @@ npm run dev          # watch mode
 Symlink into your vault for testing:
 
 ```sh
-ln -s /path/to/obsidian-console /path/to/vault/.obsidian/plugins/console-terminal
+ln -s /path/to/obsidian-cathode /path/to/vault/.obsidian/plugins/cathode-terminal
 ```
 
 ## Architecture

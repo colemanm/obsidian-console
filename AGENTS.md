@@ -11,8 +11,9 @@
 
 ## Files To Keep In Sync
 
-- Update the same version in `manifest.json`, `package.json`, and `package-lock.json`.
+- Update the same version in `manifest.json`, `package.json`, `package-lock.json`, and `versions.json`.
 - In `package-lock.json`, update both the top-level `version` field and `packages[""].version`.
+- In `versions.json`, add a `"<version>": "<minAppVersion>"` entry (currently `"1.5.0"`).
 
 ## Changelog Workflow
 

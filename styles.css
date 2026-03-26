@@ -1,4 +1,4 @@
-.console-terminal-container {
+.cathode-terminal-container {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -7,21 +7,21 @@
   box-sizing: border-box;
 }
 
-.console-terminal {
+.cathode-terminal {
   flex: 1;
   min-height: 0;
   overflow: hidden;
 }
 
-.console-terminal .xterm {
+.cathode-terminal .xterm {
   height: 100%;
 }
 
-.console-terminal .xterm-viewport {
+.cathode-terminal .xterm-viewport {
   overflow-y: auto;
 }
 
 /* Ensure xterm rows render at the right width */
-.console-terminal .xterm-screen {
+.cathode-terminal .xterm-screen {
   width: 100% !important;
 }

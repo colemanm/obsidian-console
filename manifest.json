@@ -1,6 +1,6 @@
 {
-  "id": "console-terminal",
-  "name": "Console",
+  "id": "obsidian-cathode",
+  "name": "Cathode",
   "version": "0.1.1",
   "minAppVersion": "1.5.0",
   "description": "Integrated zsh terminal in Obsidian tabs via xterm.js and node-pty",

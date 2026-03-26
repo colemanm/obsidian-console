@@ -2,7 +2,7 @@ import { Plugin } from "obsidian";
 import { VIEW_TYPE_TERMINAL } from "./constants";
 import { TerminalView } from "./terminal-view";
 
-export default class ConsolePlugin extends Plugin {
+export default class CathodePlugin extends Plugin {
   async onload(): Promise<void> {
     this.registerView(VIEW_TYPE_TERMINAL, (leaf) => new TerminalView(leaf, this));
 
