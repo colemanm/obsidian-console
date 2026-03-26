@@ -1,7 +1,7 @@
 {
   "id": "obsidian-cathode",
   "name": "Cathode",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "minAppVersion": "1.5.0",
   "description": "Integrated zsh terminal in Obsidian tabs via xterm.js and node-pty",
   "author": "Coleman",
